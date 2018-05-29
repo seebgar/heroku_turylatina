@@ -24,10 +24,12 @@ header:before {
 
 .over  {
 	position:absolute; width:100%; height:400px;overflow:hidden; top: 4.5em;
+	background-attachment: fixed;
 }
 
 .header_form {
 	margin: auto; padding: 20em 8em 5em 8em;
+	background-attachment: fixed;
 }
 
 @media (max-width: 800px) {
