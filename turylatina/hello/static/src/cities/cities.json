@@ -1,0 +1,44 @@
+[
+	{
+		"name": "Bogotá DC",
+		"image": "https://c1.staticflickr.com/5/4335/36415484834_b2ae1f40f3_b.jpg",
+		"price": 215999,
+		"dpt": "La Atenas Suramericana"
+	},
+	{
+		"name": "Cartagena de Indias",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Street_in_Cartagena%2C_Colombia.jpg",
+		"price": 299999,
+		"dpt": "La Ciudad Amurallada"
+	},
+	{
+		"name": "Cali",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Calle_de_La_Escopeta%2C_Cali%2C_Colombia_01.jpg",
+		"price": 149999,
+		"dpt": "La Capital Mundial de la Salsa"
+	},
+	{
+		"name": "Medellín",
+		"image": "https://www.themasculinetraveler.com/wp-content/uploads/2017/02/Medellin-Columbia.jpg",
+		"price": 399999,
+		"dpt": "La Ciudad de la Eterna Primavera"
+	},
+	{
+		"name": "Santa Marta",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/3/38/El_Rodadero%2C_Santa_Marta%2C_Colombia.jpg",
+		"price": 299999,
+		"dpt": "La Perla de América"
+	},
+	{
+		"name": "Barranquilla",
+		"image": "https://cdn.colombia.com/images/turismo/sitios-turisticos/barranquilla/barranquilla.jpg",
+		"price": 99999,
+		"dpt": "La Puerta de Oro"
+	},
+	{
+		"name": "Guaduas",
+		"image": "https://lh3.googleusercontent.com/EGus05DanvOpWOl95TLUdnMc4pLCogxZZoy5mnj1r5Gt990OYBic3RScY1YTsGtnX4pb5jM_v15S0ApAX9Le2hMehqnP2HDwZjB5ZHsabnhb4B9tLmxvONR6uTDez_5D4eYZtvFny4qjI1jpN7iAAjAsVMB0bLTZ7w-AHidFTWWQ6wSGh2HTALljqyi4PUezb6GxwFLRQeRgT6ton5JA8sXfqEXl1BIyYBytLT2elv1M2WmHfNVfcehmi9u_dUegAGWvi8pp4d2L1ut4ESqwNVCW9fDe6KBSUtFnCdFjc0tDR5b2KNvop7RWokQAGoFRdxxYkqbzxDMLQhHhGTg0G1cz9XOKi3BtW6KGxaxrDJHhK2bkqVaH5HQjgqvyqcEEVg5O1ro1HcW0sTPuBb8MlMaYO_q8145ffOrz6juXEgG48RmMgV4Youw1LR5tIiyrCo_E4sTzPnI1cCQ52bH-GcAsGkXO-pYHz5CsyO7Fo6NrRx_0BGt6gUyW7DgveWjzBfpriXBYPAEr1JTFWgW1IGfr5JnTbfMeoD46MwaxWB0Me3Atboq3KspVktZhBoalibi8SNrJ0lY7lQEbYlFWFgPeDzhDASx-iisO-U4=w904-h792-no",
+		"price": 19999,
+		"dpt": "Villa de San Miguel de Guaduas"
+	}
+]

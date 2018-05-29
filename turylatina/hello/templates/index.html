@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+
+{% block title %} Turylatina {% endblock %}
+
+
+
+{% block reservationform %}
+<div class="ui form" style="margin: auto; padding: 8em 5em;">
+
+  <h1 style="font-weight: 300; font-family: 'Roboto'; color: white;">Search your flight</h1>
+
+  <div class="two fields">
+
+    <div class="field">
+      <label style="color: white">FROM</label>
+      <input type="text" placeholder="Departure">
+    </div>
+    <div class="field">
+      <label style="color: white">TO</label>
+      <input type="text" placeholder="Arrival">
+    </div>
+
+  </div>
+
+  <div class="two fields">
+
+    <div class="field">
+      <label style="color: white">DEPARTURE DATE</label>
+      <div class="ui calendar" id="rangestart">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input type="text" placeholder="Start">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label style="color: white">ARRRIVAL DATE</label>
+      <div class="ui calendar" id="rangeend">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input type="text" placeholder="End">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br/>
+  <div class="two fields">
+
+    <div class="field">
+      &nbsp;
+    </div>
+    <div class="field">
+      <button class="ui inverted button" style="float: right;">Search</button>
+    </div>
+
+  </div>
+
+</div>
+<br/>
+{% endblock %}
+
+
+
+
+
+
+{% block footer %}
+<div class="ui stackable three column grid" style="padding-top: 5em; font-family: 'Roboto'; font-size: 20px;">
+    <div class="column" style="color: white; text-align: center">Destinations</div>
+    <div class="column" style="color: white; text-align: center">Contact us</div>
+    <div class="column" style="color: white; text-align: center">About us</div>
+  </div>
+
+  <div class="ui middle aligned center aligned grid" style="padding-top: 8em;">
+    <div class="column" style="color: white;">
+      <i class="ion-social-facebook" style="color: white; font-size: 30px;"></i>
+    </div>
+    <div class="column" style="color: white;">
+      <i class="ion-social-instagram" style="color: white; font-size: 30px;"></i>
+    </div>
+  </div>
+{% endblock %}

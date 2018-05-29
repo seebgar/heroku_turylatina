@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+	{% load staticfiles %}
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Book flights to the most beautiful cities in Colombia." />
+		<meta name="keywords" content="book, flight, colombia, travel, bogota, latin, america" />
+
+		<meta name="author" content="Sebastian Garcia">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'style/demo.css'%}" />
+		<!--<link rel="stylesheet" type="text/css" href="css/icons.css" />-->
+		<link rel="stylesheet" type="text/css" href="{% static 'style/component.css'%}" />
+		<script src="{% static 'style/modernizr.custom.js'%}"></script> 
+		
+		<link rel="icon" href="{% static 'style/resources/logo/logo_im_b.png'%}">
+	
+		<title>{% block title %}{% endblock %}</title>
+	
+		<!-- SEMANTIC UI -->
+		<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet"
+		 type="text/css" />
+	
+		<!-- JQUERY -->
+		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	
+		<!-- SEMANTIC UI JS  -->
+		<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+	
+		<!-- ICONS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'style/vendors/css/ionicons.min.css'%}">
+	
+		<!-- FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
+	
+		<!-- STYLE -->
+		<link rel="stylesheet" type="text/css" href="{% static 'style/normalize.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'style/style.css'%}">
+
+		<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
+	
+	</head>
+
+
+	<body>
+		<div id="st-container" class="st-container">
+
+			<nav class="st-menu st-effect-4" id="menu-4" style="background-color: rgb(20, 141, 136);">
+				<h2 class="icon icon-lab">Menu</h2>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Destinations</a></li>
+					<li><a href="#">Contact us</a></li>
+				</ul>
+			</nav>
+
+			<div class="st-pusher">
+				<div class="st-content">
+					<!-- this is the wrapper for the content -->
+				
+				
+					<div>
+						{% block city %}{% endblock %}
+					</div>
+				
+					<header>
+
+						
+						<div id="st-trigger-effects" class="column" style="padding-top: 3em; margin-left: -1px;">
+							<a data-effect="st-effect-4" style="color: white; font-size: 40px;"><ion-icon name="menu"></ion-icon></a>
+						</div>
+
+				
+						<div class="over row">
+							<img src="{% static 'style/resources/logo/logo_im.png'%}" alt="logo image" width="20%" height="auto">
+						</div>
+				
+						<div class="ui form header_form">
+							<div class="four fields">
+				
+								<div class="field">
+									<input type="text" placeholder="Departure">
+								</div>
+				
+								<div class="field">
+									<input type="text" placeholder="Destination">
+								</div>
+				
+								<div class="field">
+									<div class="ui calendar" id="rangestart">
+										<div class="ui input left icon">
+											<i class="calendar icon"></i>
+											<input type="text" placeholder="From">
+										</div>
+									</div>
+								</div>
+				
+								<div class="field">
+									<div class="ui calendar" id="rangeend">
+										<div class="ui input left icon">
+											<i class="calendar icon"></i>
+											<input type="text" placeholder="To">
+										</div>
+									</div>
+								</div>
+				
+							</div>
+						</div>
+				
+						<div class="row">&nbsp;</div>
+						<div class="row">&nbsp;</div>
+					</header>
+				
+
+
+
+					<div class="cities" id="destinations">
+						<div class="ui container">
+							{% block cities %}{% endblock %}
+						</div>
+					</div>
+				
+					<div class="reservation">
+						<div class="ui text container">
+							{% block reservationform %}{% endblock %}
+						</div>
+					</div>
+				
+				
+					<footer>
+						{% block footer %}{% endblock %}
+					</footer>
+				
+				
+				
+				
+				</div>
+				<!-- /st-content -->
+			</div><!-- /st-pusher -->
+		</div><!-- /st-container -->
+		<!-- JS CODE-->
+		<script src="{% static 'style/code.js'%}"></script> 
+		<script src="{% static 'style/classie.js'%}"></script>
+		<script src="{% static 'style/sidebarEffects.js'%}"></script>
+	</body>
+</html>

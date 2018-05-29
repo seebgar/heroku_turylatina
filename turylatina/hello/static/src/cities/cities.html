@@ -1,0 +1,27 @@
+<div class="ui basic segment" ng-app="cityModule" style="padding: 5em; background-color: rgba(255, 255, 255, 0);">
+
+	<h1 style="font-weight: 300; font-family: 'Roboto'; color: gray;">Destinations</h1>
+	<hr/>
+	<br/>
+	<br/>
+
+	<div class="ui two fluid link stackable cards" ng-controller="cityController">
+
+		<div class="ui raised fluid card" ng-repeat="city in cities | orderBy: 'name' | filter: string">
+			<div class="image">
+				<img src="{{city.image}}" style="min-height: 25em; max-height: 25em;">
+			</div>
+			<div class="content">
+				<div><h2 style="font-weight: 300; font-family: 'Roboto'">{{city.name}}</h2></div>
+				<div class="meta">
+					<p>{{city.dpt}}</p>
+				</div>
+				<div class="description">
+					<h3 style="font-weight: 300; font-family: 'Roboto';">From {{city.price | currency}}</h3>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,86 @@
+{% extends "index.html" %} 
+
+{% load humanize %} 
+
+{% block cities %}
+
+<div style="padding: 5em 0em; background-color: rgba(255, 255, 255, 0);">
+	
+	<h1 style="font-weight: 300; font-family: 'Raleway', sans-serif; color: gray;">Destinations</h1>
+	<hr/>
+	<br/>
+	<br/>
+
+	<div class="ui three link stackable cards">
+
+			<script>
+					function show_more(id) {
+						const plus = document.querySelector('#' + id + '_more');
+						const card = document.querySelector('#' + id );
+						const image = document.querySelector('#' + id + '_im');
+						if (plus.style.display === 'none' ) {
+							plus.style.display = "block";
+							plus.style.height = '200px';
+							plus.style.backgroundColor = 'white';
+							plus.style.color = 'black';
+						} else {
+							plus.style.display = "none";
+							image.style.opacity = '1';
+						}
+						
+					}
+			</script> 
+		
+		{% for city in cities %}	
+
+			<div class="ui raised fluid card" id="city_{{city.id}}" onclick="show_more('city_{{city.id}}')" >
+				<div class="image" id="city_{{city.id}}_im" >
+					<img src="{{city.image}}">
+				</div>
+				<div class="content">
+					<div>
+						<h2 style="font-weight: 300; font-family: 'Raleway', sans-serif;">{{city.name}}</h2>
+					</div>
+					<div class="meta">
+						<p>{{city.dpt}}</p>
+					</div>
+					<div class="description">
+						<h3 style="font-weight: 300; font-family: 'Roboto', sans-serif;">From $ {{city.price|floatformat:2|intcomma}} COP</h3>
+					</div>
+				</div>
+
+
+				
+				<div class="ui bottom attached label" id="city_{{city.id}}_more" style="display: none;">
+
+						<span class="dot">
+							<a style="text-decoration: none; color: white;"  href="{% url 'detail' city.id %}"> 
+								<ion-icon style="color: white; font-size: 40px; padding-top: 5px; z-index: 60;" name="add"></ion-icon>
+							</a>
+						</span>
+
+					<div>
+						<h2 style="font-weight: 300; font-family: 'Raleway', sans-serif;">{{city.name}}</h2>
+					</div>
+					<div class="meta">
+						<p>{{city.dpt}}</p>
+					</div>
+					<div class="description">
+						<h3 style="font-weight: 300; font-family: 'Roboto', sans-serif;">From $ {{city.price|floatformat:2|intcomma}} COP</h3>
+
+						<div class="ui circular labels"> 
+							{% for key, val in city.currencies %}
+								<a class="large ui label" style="font-weight: 400; font-family: 'Roboto', sans-serif;"> $ {{val|floatformat:2|intcomma}} {{key}}</a>
+							{% endfor %}
+						</div>
+					
+					</div>
+				</div>
+
+			</div>
+	
+		{% endfor %}
+
+	</div>
+</div>
+{% endblock %}
