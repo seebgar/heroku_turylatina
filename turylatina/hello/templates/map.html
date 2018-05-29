@@ -1,0 +1,142 @@
+{% extends "basezero.html" %}
+
+{% block container %}
+
+{% load staticfiles %}
+
+    <style>
+        #marker {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+
+
+	
+	<div id='map' style='width: 100%; height: 100vh;'>
+        <a href="{% url 'index' %}" class="fluid large ui button"  style="position: absolute; bottom: 0em; z-index: 50;">Go Back</a>
+    </div>
+	
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2VlYmdhciIsImEiOiJjamhyeGluZmswaHljMzZwcGloa25ncTdwIn0.WW1wn2TDWeawRzx9ZAISUw';
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v10',
+            center: [-74.061082, 4.186528],
+            zoom: 5
+        });
+        
+        // create the popup
+        var pop_bog = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Bogotá DC');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        el.innerHTML = '<a class="fluid ui button"> + </a>';
+        var bogota = new mapboxgl.Marker()
+            .setLngLat([-74.065567, 4.603133])
+            .setPopup(pop_bog) // sets a popup on this marker
+            .addTo(map);
+
+
+        // create the popup
+        var pop_med = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Medellin');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        var medellin = new mapboxgl.Marker()
+            .setLngLat([-75.574963, 6.260110])
+            .setPopup(pop_med)
+            .addTo(map);
+
+
+        // create the popup
+        var pop_bar = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Barranquilla');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        var el = document.createElement('div');
+        var barranquilla = new mapboxgl.Marker()
+            .setLngLat([-74.800384, 10.998636])
+            .setPopup(pop_bar)
+            .addTo(map);
+        
+        
+        // create the popup
+        var pop_car = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Cartagena');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        var el = document.createElement('div');
+        var cartagena = new mapboxgl.Marker()
+            .setLngLat([-75.539027, 10.422321])
+            .setPopup(pop_car)
+            .addTo(map);
+
+        
+        // create the popup
+        var pop_cali = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Cali');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        var cali = new mapboxgl.Marker()
+            .setLngLat([-76.541358, 3.428705])
+            .setPopup(pop_cali)
+            .addTo(map);
+
+        
+        // create the popup
+        var pop_sm = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Santa Marta');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        var santamarta = new mapboxgl.Marker()
+            .setLngLat([-74.227812, 11.204081])
+            .setPopup(pop_sm)
+            .addTo(map);
+        
+        
+        // create the popup
+        var pop_gu = new mapboxgl.Popup({
+                offset: 25
+            })
+            .setText('Guaduas');
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+        var guaduas = new mapboxgl.Marker()
+            .setLngLat([-74.595480, 5.066956])
+            .setPopup(pop_gu)
+            .addTo(map);
+        
+        
+        
+        
+    </script>
+
+{% endblock %}
+
+
+
+<!--
+pk.eyJ1Ijoic2VlYmdhciIsImEiOiJjamhyeGluZmswaHljMzZwcGloa25ncTdwIn0.WW1wn2TDWeawRzx9ZAISUw
+-->

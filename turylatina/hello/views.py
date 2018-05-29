@@ -170,8 +170,15 @@ def index(request):
     return render(request, 'cities.html', context)
 
 
-def detail(request, id):
 
+def map(request):
+    return render(request, 'map.html')
+
+
+
+def detail(request, id):
+    return render(request, 'map.html')
+    """ 
     context = {
         'cities': [
             {
@@ -288,8 +295,9 @@ def detail(request, id):
                 "city" : context['cities'][x]
             }
             return render(request, 'city.html', context_detailed)
-            
+
     return render(request, 'error.html', { "message": "City does not exist ... o todavia no termino", "status": 404 })
+ """
      
      
 

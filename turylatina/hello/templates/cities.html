@@ -4,6 +4,8 @@
 
 {% block cities %}
 
+{% load staticfiles %}
+
 <div style="padding: 5em 0em; background-color: rgba(255, 255, 255, 0);">
 	
 	<h1 style="font-weight: 300; font-family: 'Raleway', sans-serif; color: gray;">Destinations</h1>
@@ -53,7 +55,7 @@
 				
 				<div class="ui bottom attached label" id="city_{{city.id}}_more" style="display: none;">
 
-						<span class="dot">
+						<span class="dot"> <!--href="{% url 'detail' city.id %}"-->
 							<a style="text-decoration: none; color: white;"  href="{% url 'detail' city.id %}"> 
 								<ion-icon style="color: white; font-size: 40px; padding-top: 5px; z-index: 60;" name="add"></ion-icon>
 							</a>
