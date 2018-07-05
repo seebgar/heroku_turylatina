@@ -11,8 +11,9 @@ from . import views
 urlpatterns = [
     # path asociated to a function inside the view
     path("", views.index, name='index' ),
-    path("detail/<int:id>/", views.detail, name='detail' ),
-    path("map/", views.map, name='map' )
+    #path("detail/<int:id>/", views.detail, name='detail' ),
+    path("map/", views.map, name='map' ),
+    path("submit/", views.submit, name='submit' )
     # 3rd parameter : name='path_name'
     # then, in the html file use tag
     # <a hrf="{% url 'path_name' %}"> Go to path name </a>

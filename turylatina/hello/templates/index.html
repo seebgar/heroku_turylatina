@@ -1,85 +1,110 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %} Turylatina {% endblock %} {% load staticfiles %} {% block reservationform %}
 
 
-{% block title %} Turylatina {% endblock %}
+<style>
+  .uk-input, .uk-select, .uk-textarea, .uk-button  {
+    border-radius: 0.2em;
+  }
+</style>
 
-{% load staticfiles %}
+<div id="contact" style="margin: auto; padding: 8em 2em;">
 
-{% block reservationform %}
-<div class="ui form" style="margin: auto; padding: 8em 5em;">
+  <h1 style="font-weight: 300; font-family: 'Roboto'; color: white;">Contact Us</h1>
 
-  <h1 style="font-weight: 300; font-family: 'Roboto'; color: white;">Search your flight</h1>
 
-  <div class="two fields">
 
-    <div class="field">
-      <label style="color: white">FROM</label>
-      <input type="text" placeholder="Departure">
+
+
+
+
+  <form class="uk-grid-small" uk-grid method="POST">  {% csrf_token %}
+
+    <div class="uk-width-1-2@s">
+      <input  name="name" class="uk-input" type="text" placeholder="Name" required maxlength="50">
     </div>
-    <div class="field">
-      <label style="color: white">TO</label>
-      <input type="text" placeholder="Arrival">
+
+    <div class="uk-width-1-2@s">
+      <input name="lastname" class="uk-input" type="text" placeholder="Last Name" required maxlength="50">
     </div>
 
-  </div>
+    <div class="uk-width-1-1">
+        <input name="email" class="uk-input" type="email" placeholder="Email" required>
+      </div>
 
-  <div class="two fields">
-
-    <div class="field">
-      <label style="color: white">DEPARTURE DATE</label>
-      <div class="ui calendar" id="rangestart">
-        <div class="ui input left icon">
-          <i class="calendar icon"></i>
-          <input type="text" placeholder="Start">
+      <div class="uk-width-1-2@s">
+          <input name="phone" class="uk-input" type="number" placeholder="Phone" maxlength="15">
         </div>
+
+    <div class="uk-width-1-2@s">
+      <div class="uk-margin">
+        <select name="destination" class="uk-select">
+          <option disabled selected value> Destination </option>
+          <option>Bogotá D.C.</option>
+          <option>Cartagena de Indias</option>
+          <option>Cali</option>
+          <option>Medellin</option>
+          <option>Santa Marta</option>
+          <option>Barranquilla</option>
+          <option>Guaduas</option>
+        </select>
       </div>
     </div>
-    <div class="field">
-      <label style="color: white">ARRRIVAL DATE</label>
-      <div class="ui calendar" id="rangeend">
-        <div class="ui input left icon">
-          <i class="calendar icon"></i>
-          <input type="text" placeholder="End">
-        </div>
-      </div>
+
+    <div class="uk-width-1-2@s">
+      <input name="from_date" class="uk-input" type="text" data-uk-datepicker="{format:'DD.MM.YYYY'}" placeholder="From">
     </div>
 
-  </div>
-
-  <br/>
-  <div class="two fields">
-
-    <div class="field">
-      &nbsp;
+    <div class="uk-width-1-2@s">
+      <input name="to_date" class="uk-input" type="text" data-uk-datepicker="{format:'DD.MM.YYYY'}" placeholder="To">
     </div>
-    <div class="field">
-      <button class="ui inverted button" style="float: right;">Search</button>
+    
+
+    <div class="uk-margin uk-width-1-1">
+      <textarea name="extra" class="uk-textarea" rows="5" placeholder="Anything else?"></textarea>
     </div>
 
-  </div>
+
+
+    <div class="uk-margin">
+        <button  type="submit" class="uk-button uk-button-default" style="color: white">Submit</button>      
+    </div>
+
+   
+
+  </form>
+
+
+
+
+
+
+
+
+
+
 
 </div>
-<br/>
-{% endblock %}
 
+<br/> 
 
+{% endblock %} 
 
 
 
 
 {% block footer %}
 <div class="ui stackable three column grid" style="padding-top: 5em; font-family: 'Roboto'; font-size: 20px;">
-    <div class="column" style="color: white; text-align: center">Destinations</div>
-    <div class="column" style="color: white; text-align: center">Contact us</div>
-    <div class="column" style="color: white; text-align: center">About us</div>
-  </div>
+  <div class="column" style="color: white; text-align: center">Destinations</div>
+  <div class="column" style="color: white; text-align: center">Contact us</div>
+  <div class="column" style="color: white; text-align: center">About us</div>
+</div>
 
-  <div class="ui middle aligned center aligned grid" style="padding-top: 8em;">
-    <div class="column" style="color: white;">
-      <i class="ion-social-facebook" style="color: white; font-size: 30px;"></i>
-    </div>
-    <div class="column" style="color: white;">
-      <i class="ion-social-instagram" style="color: white; font-size: 30px;"></i>
-    </div>
+<div class="ui middle aligned center aligned grid" style="padding-top: 8em;">
+  <div class="column" style="color: white;">
+    <i class="ion-social-facebook" style="color: white; font-size: 30px;"></i>
   </div>
+  <div class="column" style="color: white;">
+    <i class="ion-social-instagram" style="color: white; font-size: 30px;"></i>
+  </div>
+</div>
 {% endblock %}

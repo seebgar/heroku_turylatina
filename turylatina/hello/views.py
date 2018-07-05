@@ -49,9 +49,12 @@ def exhange( wanted, amount ):
 
 
 
+from django.core.mail import send_mail
+from django.conf import settings
 
+# COMO HACERLO? : https://www.codingforentrepreneurs.com/blog/use-gmail-for-email-in-django/
 
-
+#from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
@@ -65,14 +68,7 @@ def index(request):
                 "image": "https://c1.staticflickr.com/5/4335/36415484834_b2ae1f40f3_b.jpg",
                 "price": 215999,
                 "dpt": "La Atenas Suramericana",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=215999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=215999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=215999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=215999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=215999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=215999 ) )
-                ]
+                "info": "Bogotá is Colombia's beating heart, an engaging and vibrant capital cradled by chilly Andean peaks and steeped in sophisticated urban cool. The city's cultural epicenter is La Candelaria, the cobbled historic downtown to which most travelers gravitate. Here, a potpourri of preciously preserved colonial buildings house museums, restaurants, hotels and bars peppered amid 300-year-old homes, churches and convents. Nearly all of Bogotá's traditional attractions are here – radiating out from Plaza de Bolívar – and gorgeous Cerro de Monserrate is just east. \nContinue reading on https://www.lonelyplanet.com/colombia/bogota"
             },
             {
                 "name": "Cartagena de Indias",
@@ -80,14 +76,7 @@ def index(request):
                 "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Street_in_Cartagena%2C_Colombia.jpg",
                 "price": 299999,
                 "dpt": "La Ciudad Amurallada",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=299999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=299999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=299999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=299999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=299999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=299999 ) )
-                ]
+                "info" : "Cartagena de Indias is the undisputed queen of the Caribbean coast, a fairy-tale city of romance, legends and superbly preserved beauty lying within an impressive 13km of centuries-old colonial stone walls. Cartagena's Old Town is a Unesco World Heritage site – a maze of cobbled alleys, balconies covered in bougainvillea, and massive churches that cast their shadows across leafy plazas. \nContinue reading on https://www.lonelyplanet.com/colombia/caribbean-coast/cartagena"
             },
             {
                 "name": "Cali",
@@ -95,14 +84,7 @@ def index(request):
                 "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Calle_de_La_Escopeta%2C_Cali%2C_Colombia_01.jpg",
                 "price": 149999,
                 "dpt": "La Capital Mundial de la Salsa",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=149999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=149999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=149999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=149999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=149999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=149999 ) )
-                ]
+                "info" : "While it may not have the looks to front the tourist brochure, Cali is the kind of place that provides all the substance. It's a hot, gritty city with a passion for life that draws you in and stays with you long after you leave town. \nContinue reading on https://www.lonelyplanet.com/colombia/southwest-colombia/cali "
             },
             {
                 "name": "Medellín",
@@ -110,14 +92,7 @@ def index(request):
                 "image": "https://www.themasculinetraveler.com/wp-content/uploads/2017/02/Medellin-Columbia.jpg",
                 "price": 189999,
                 "dpt": "La Ciudad de la Eterna Primavera",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=189999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=189999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=189999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=189999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=189999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=189999 ) )
-                ]
+                "info" : "Medellín packs the punch of a city twice its size. Situated in a narrow valley, its skyline reaches for the heavens, setting high-rise apartment and office buildings against a backdrop of jagged peaks in every direction. Its pleasant climate gives it its nickname – the City of Eternal Spring – and the moderate temperatures put a spring in the locals' steps, at work and at play. It's a bustling place of industry and commerce, especially textile manufacturing and exported cut flowers. On weekends Medellín lets its hair down, its many discos attracting the beautiful people. \nContinue reading on https://www.lonelyplanet.com/colombia/northwest-colombia/medellin"
             },
             {
                 "name": "Santa Marta",
@@ -125,14 +100,7 @@ def index(request):
                 "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/El_Rodadero%2C_Santa_Marta%2C_Colombia.jpg",
                 "price": 299999,
                 "dpt": "La Perla de América",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=299999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=299999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=299999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=299999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=299999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=299999 ) )
-                ]
+                "info" : "Santa Marta is South America's oldest European-founded town and the second most important colonial city on Colombia's Caribbean coast. Despite its long history and charming center, it gets a bad rap from many travelers, who rightly cite its unsightly urban sprawl and terrible traffic as reasons not to hang about here. The secret to Santa Marta is to use it for what it does well: hotels, restaurants and bars, and then get out to the slew of superb destinations nearby during the daytime. \nContinue reading on https://www.lonelyplanet.com/colombia/caribbean-coast/santa-marta"
             },
             {
                 "name": "Barranquilla",
@@ -140,14 +108,7 @@ def index(request):
                 "image": "https://cdn.colombia.com/images/turismo/sitios-turisticos/barranquilla/barranquilla.jpg",
                 "price": 139999,
                 "dpt": "La Puerta de Oro",
-                "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=139999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=139999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=139999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=139999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=139999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=139999 ) )
-                ]
+                "info" : "Barranquilla, Colombia's fourth-largest city, is a hardworking port town located on the delta of the massive River Magdalena and laid out in a tangled ribbon along mangroves and the Caribbean Sea, sweltering and hustling in the blinding sun. The birthplace of Colombian pop goddess Shakira, Barranquilla is actually most famous for its annual carnaval, when the town clocks off, puts on its glad rags and goes wild as it throws the country's biggest street party. \nContinue reading on https://www.lonelyplanet.com/colombia/barranquilla"
             },
             {
                 "name": "Guaduas",
@@ -155,17 +116,24 @@ def index(request):
                 "image": "http://magicalcolombia.com/wp-content/uploads/2017/06/main_square_guaduas_cundinamarca_travel_colombia-1.jpg",
                 "price": 19999,
                 "dpt": "Villa de San Miguel de Guaduas",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=19999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=19999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=19999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=19999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=19999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=19999 ) )
-                ]
+                "info" : "Guaduas is a town in Colombia, in the Lower Magdalena Province department of Cundinamarca, about 117 km from Bogotá. It is an agricultural and tourist center of some importance with a population of about 33,000. Its name refers to a type of bamboo cane. It is one of the cities on the Bogotá-Medellín highway. Its main plaza is featured on the Colombian ten-thousand pesos bill, and is one of the seats of the Roman Catholic Diocese of La Dorada–Guaduas"
             }
         ]
     }
+
+    if request.method == 'POST':
+        form = request.POST
+        subject = "[TURYLATINA] Nuevo Cliente"
+        message = f"Nombre: {form.get('name')} {form.get('lastname')} \nEmail: {form.get('email')} \nTelefono: {form.get('phone')} \nDestino: {form.get('destination')} \nFechas: desde {form.get('from_date')} hasta {form.get('to_date')}. \nMensaje: {form.get('extra')}"
+        from_email = form.get('email')
+        to_email = ["sebgarcia.26@gmail.com"]
+        
+        
+        send_mail(subject=subject, message=message, from_email=from_email, recipient_list=to_email, fail_silently=True)
+        return render(request, 'error.html', { 'message': "your message has been delivered succesfully", 'status': 'Thank you!' })
+
+        
+
 
     return render(request, 'cities.html', context)
 
@@ -176,130 +144,9 @@ def map(request):
 
 
 
-def detail(request, id):
-    return render(request, 'map.html')
-    """ 
-    context = {
-        'cities': [
-            {
-                "name": "Bogotá DC",
-                "id": 1,
-                "image": "https://c1.staticflickr.com/5/4335/36415484834_b2ae1f40f3_b.jpg",
-                "price": 215999,
-                "dpt": "La Atenas Suramericana",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=215999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=215999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=215999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=215999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=215999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=215999 ) )
-                ]
-            },
-            {
-                "name": "Cartagena de Indias",
-                "id": 2,
-                "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Street_in_Cartagena%2C_Colombia.jpg",
-                "price": 299999,
-                "dpt": "La Ciudad Amurallada",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=299999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=299999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=299999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=299999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=299999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=299999 ) )
-                ]
-            },
-            {
-                "name": "Cali",
-                "id": 3,
-                "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Calle_de_La_Escopeta%2C_Cali%2C_Colombia_01.jpg",
-                "price": 149999,
-                "dpt": "La Capital Mundial de la Salsa",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=149999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=149999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=149999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=149999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=149999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=149999 ) )
-                ]
-            },
-            {
-                "name": "Medellín",
-                "id": 4,
-                "image": "https://www.themasculinetraveler.com/wp-content/uploads/2017/02/Medellin-Columbia.jpg",
-                "price": 189999,
-                "dpt": "La Ciudad de la Eterna Primavera",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=189999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=189999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=189999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=189999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=189999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=189999 ) )
-                ]
-            },
-            {
-                "name": "Santa Marta",
-                "id": 5,
-                "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/El_Rodadero%2C_Santa_Marta%2C_Colombia.jpg",
-                "price": 299999,
-                "dpt": "La Perla de América",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=299999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=299999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=299999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=299999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=299999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=299999 ) )
-                ]
-            },
-            {
-                "name": "Barranquilla",
-                "id": 6,
-                "image": "https://cdn.colombia.com/images/turismo/sitios-turisticos/barranquilla/barranquilla.jpg",
-                "price": 139999,
-                "dpt": "La Puerta de Oro",
-                "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=139999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=139999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=139999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=139999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=139999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=139999 ) )
-                ]
-            },
-            {
-                "name": "Guaduas",
-                "id": 8,
-                "image": "http://magicalcolombia.com/wp-content/uploads/2017/06/main_square_guaduas_cundinamarca_travel_colombia-1.jpg",
-                "price": 19999,
-                "dpt": "Villa de San Miguel de Guaduas",
-                 "currencies": [ 
-                    ("USD" , exhange(wanted='USD', amount=19999 ) ) ,
-                    ("EUR" , exhange(wanted='EUR', amount=19999 ) ),
-                    ("MXN" , exhange(wanted='MXN', amount=19999 ) ),
-                    ("ARS" , exhange(wanted='ARS', amount=19999 ) ),
-                    ("BRL" , exhange(wanted='BRL', amount=19999 ) ),
-                    ("CLP" , exhange(wanted='CLP', amount=19999 ) )
-                ]
-            }
-        ]
-    }
+def submit(request):
+    return render(request, 'error.html', { 'message': "your message has been delivered succesfully", 'status': 'Thank you!' })
 
-    for x in range(0, (len(context) + 1)):
-        if context['cities'][x]['id'] == id:
-            context_detailed = {
-                "city" : context['cities'][x]
-            }
-            return render(request, 'city.html', context_detailed)
-
-    return render(request, 'error.html', { "message": "City does not exist ... o todavia no termino", "status": 404 })
- """
-     
-     
 
     
 

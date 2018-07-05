@@ -1,88 +1,87 @@
-{% extends "index.html" %} 
+{% extends "index.html" %} {% load humanize %} {% block cities %} {% load staticfiles %}
 
-{% load humanize %} 
 
-{% block cities %}
+<style>
 
-{% load staticfiles %}
+	.uk-card, .uk-card-default {
+		border-radius: 0.5em;
+	}
+
+</style>
+
+
 
 <div style="padding: 5em 0em; background-color: rgba(255, 255, 255, 0);">
-	
+
 	<h1 style="font-weight: 300; font-family: 'Raleway', sans-serif; color: gray;">Destinations</h1>
 	<hr/>
 	<br/>
 	<br/>
 
-	<div class="ui three link stackable cards">
+	<div class="uk-container">
 
-			<script>
-					function show_more(id) {
-						const plus = document.querySelector('#' + id + '_more');
-						const card = document.querySelector('#' + id );
-						const image = document.querySelector('#' + id + '_im');
-						if (plus.style.display === 'none' ) {
-							plus.style.display = "block";
-							plus.style.height = '200px';
-							plus.style.backgroundColor = 'white';
-							plus.style.color = 'black';
-						} else {
-							plus.style.display = "none";
-							image.style.opacity = '1';
-						}
-						
-					}
-			</script> 
-		
-		{% for city in cities %}	
+		<div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid uk-height-match="target: > div > .uk-card">
 
-			<div class="ui raised fluid card" id="city_{{city.id}}" onclick="show_more('city_{{city.id}}')" >
-				<div class="image" id="city_{{city.id}}_im" >
-					<img src="{{city.image}}">
-				</div>
-				<div class="content">
-					<div>
-						<h2 style="font-weight: 300; font-family: 'Raleway', sans-serif;">{{city.name}}</h2>
+			{% for city in cities %}
+
+			<div>
+				<div class="uk-card uk-card-default">
+					<div class="uk-card-media-top">
+						<img src="{{city.image}}" alt="{{city.name}}">
 					</div>
-					<div class="meta">
-						<p>{{city.dpt}}</p>
-					</div>
-					<div class="description">
-						<h3 style="font-weight: 300; font-family: 'Roboto', sans-serif;">From $ {{city.price|floatformat:2|intcomma}} COP</h3>
+					<div class="uk-card-body">
+						<h2 class="uk-card-title" style="font-weight: 300; font-family: 'Raleway', sans-serif; color: rgb(75, 75, 75);">{{city.name}}</h2>
+						<p>{{city.dpt}}
+							<br/> From $ {{city.price | intcomma}} COP</p>
+						<a class="uk-position-absolute uk-transform-center" style="right: 5%; top: 90%" href="#modal-full-{{city.id}}" uk-toggle
+						 uk-marker></a>
 					</div>
 				</div>
-
-
-				
-				<div class="ui bottom attached label" id="city_{{city.id}}_more" style="display: none;">
-
-						<span class="dot"> <!--href="{% url 'detail' city.id %}"-->
-							<a style="text-decoration: none; color: white;"  href="{% url 'detail' city.id %}"> 
-								<ion-icon style="color: white; font-size: 40px; padding-top: 5px; z-index: 60;" name="add"></ion-icon>
-							</a>
-						</span>
-
-					<div>
-						<h2 style="font-weight: 300; font-family: 'Raleway', sans-serif;">{{city.name}}</h2>
-					</div>
-					<div class="meta">
-						<p>{{city.dpt}}</p>
-					</div>
-					<div class="description">
-						<h3 style="font-weight: 300; font-family: 'Roboto', sans-serif;">From $ {{city.price|floatformat:2|intcomma}} COP</h3>
-
-						<div class="ui circular labels"> 
-							{% for key, val in city.currencies %}
-								<a class="large ui label" style="font-weight: 400; font-family: 'Roboto', sans-serif;"> $ {{val|floatformat:2|intcomma}} {{key}}</a>
-							{% endfor %}
-						</div>
-					
-					</div>
-				</div>
-
 			</div>
-	
-		{% endfor %}
+
+			<div id="modal-full-{{city.id}}" class="uk-modal-full" uk-modal>
+					<div class="uk-modal-dialog">
+						<button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+						<div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+							<div class="uk-background-cover" style="background-image: url('{{city.image}}');"
+							 uk-height-viewport></div>
+			
+							<div class="uk-padding-large">
+			
+								<h1 style="font-weight: 300; font-size: 80px; font-family: 'Raleway', sans-serif; color: gray;">{{city.name}}</h1>
+			
+								<p> {{city.info}}
+								</p>
+			
+								{% if city.name == "Cartagena de Indias" or city.name ==  "Santa Marta" or city.name ==  "Barranquilla"  %}
+								<a style="text-decoration: none;" href="{% url 'map' %}">
+									<img src="{% static 'style/resources/ciudades/norte.jpg'%}">
+								</a>
+								{% else %}
+								<a style="text-decoration: none;" href="{% url 'map' %}">
+									<img src="{% static 'style/resources/ciudades/centro.jpg'%}">
+								</a>
+								{% endif %}
+			
+			
+							</div>
+			
+						</div>
+					</div>
+			
+				</div>
+			
+
+			{% endfor %}
+
+		</div>
 
 	</div>
+
+
+
+
+
 </div>
+
 {% endblock %}
