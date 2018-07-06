@@ -4,7 +4,7 @@
 {% block container %}
 
 {% load staticfiles %}
-
+<!--
 <div id="st-container" class="st-container">
 
 		<nav class="st-menu st-effect-4" id="menu-4" style="background-color: rgb(20, 141, 136);">
@@ -19,63 +19,51 @@
 
 		<div class="st-pusher">
 			<div class="st-content">
-				<!-- this is the wrapper for the content -->
+			-->
+
+
+			<div class="uk-offcanvas-content">
+
+		
+				<div id="offcanvas-nav-primary" uk-offcanvas="mode: push">
+					<div class="uk-offcanvas-bar uk-flex uk-flex-column">
 			
+						<ul class="uk-nav uk-nav-primary uk-nav-left uk-margin-auto-vertical">
+							
+							<li class="uk-nav-header">Menu</li>
+							<li class="uk-nav-divider"></li>
+
+							<li><a href="#"><span  uk-icon="icon: home"></span> Home</a></li>
+							<li><a href="#destinations"><span  uk-icon="icon: thumbnails"></span> Destinations</a></li>
+							<li><a href="{% url 'map' %}" ><span  uk-icon="icon: world"></span> Map</a></li>
+							<li><a href="#contact" onclick="jQuery.UIkit.offcanvas.offcanvas.hide();" data-uk-smooth-scroll="{offset:130}" ><span  uk-icon="icon: mail"></span> Contact Us</a></li>
+
+							<li class="uk-nav-divider"></li>
+							<li><a style="font-size: 15px;" href="https://www.instagram.com/seebgar/"><span class="uk-margin-small-right" uk-icon="icon: instagram; ratio: 0.7" ></span> @turylatina</a></li>
+							<li><a style="font-size: 15px;" href="#"><span class="uk-margin-small-right" uk-icon="icon: google; ratio: 0.7"></span> turylatina@gmail.com</a></li>
+							<li><a style="font-size: 15px;" href="#"><span class="uk-margin-small-right" uk-icon="icon: whatsapp; ratio: 0.7"></span> +57 1 (xxx) xxx xxxx</a></li>
+
+						</ul>
 			
-				<div>
-					{% block city %}{% endblock %}
+					</div>
 				</div>
 			
+
+
+
 				<header>
-
-					
-					<div id="st-trigger-effects" class="column">
-						<a data-effect="st-effect-4" style="color: white; font-size: 40px;"><ion-icon name="menu"></ion-icon></a>
+					<div class="column">
+						<a uk-toggle="target: #offcanvas-nav-primary" style="color: white; font-size: 40px;"><ion-icon name="menu"></ion-icon></a>
 					</div>
-
-			
 					<div class="over row" style="text-align: center; font-size: 20px">
 						<img src="{% static 'style/resources/logo/logo_im.png'%}" alt="logo image" width="270em" height="auto">
 					</div>
-					
-			
 					<div class="ui form header_form">
 						<div class="four fields">
-			
-							<div class="field">
-								<input type="text" placeholder="Departure">
-							</div>
-			
-							<div class="field">
-								<input type="text" placeholder="Destination">
-							</div>
-			
-							<div class="field">
-								<div class="ui calendar" id="rangestart">
-									<div class="ui input left icon">
-										<i class="calendar icon"></i>
-										<input type="text" placeholder="From">
-									</div>
-								</div>
-							</div>
-			
-							<div class="field">
-								<div class="ui calendar" id="rangeend">
-									<div class="ui input left icon">
-										<i class="calendar icon"></i>
-										<input type="text" placeholder="To">
-									</div>
-								</div>
-							</div>
-			
 						</div>
 					</div>
-			
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
 				</header>
 			
-
 
 
 				<div class="cities" id="destinations">
@@ -84,6 +72,7 @@
 					</div>
 				</div>
 			
+
 				<div class="reservation">
 					<div class="ui text container">
 						{% block reservationform %}{% endblock %}
@@ -91,16 +80,26 @@
 				</div>
 			
 			
+
 				<footer>
 					{% block footer %}{% endblock %}
 				</footer>
-			
-			
-			
+				
 			
 			</div>
-			<!-- /st-content -->
-		</div><!-- /st-pusher -->
+
+
+
+
+
+				
+			
+			
+			<!--
+			
+			</div>
+			<!-- /st-content 
+		</div><!-- /st-pusher 
 	</div><!-- /st-container -->
 
 {% endblock %}

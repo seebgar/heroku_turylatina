@@ -7,7 +7,7 @@
   }
 </style>
 
-<div id="contact" style="margin: auto; padding: 8em 2em;">
+<section id="contact" style="margin: auto; padding: 8em 2em;">
 
   <h1 style="font-weight: 300; font-family: 'Roboto'; color: white;">Contact Us</h1>
 
@@ -17,7 +17,7 @@
 
 
 
-  <form class="uk-grid-small" uk-grid method="POST">  {% csrf_token %}
+  <form class="uk-grid-small uk-form" uk-grid method="POST">  {% csrf_token %}
 
     <div class="uk-width-1-2@s">
       <input  name="name" class="uk-input" type="text" placeholder="Name" required maxlength="50">
@@ -50,19 +50,30 @@
       </div>
     </div>
 
-    <div class="uk-width-1-2@s">
-      <input name="from_date" class="uk-input" type="text" data-uk-datepicker="{format:'DD.MM.YYYY'}" placeholder="From">
+    <div class="uk-width-1-1@s">
+      <div class="ui calendar" id="rangestart">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input class="uk-input" type="text" placeholder="From" name="from_date">
+        </div>
+      </div>
     </div>
 
-    <div class="uk-width-1-2@s">
-      <input name="to_date" class="uk-input" type="text" data-uk-datepicker="{format:'DD.MM.YYYY'}" placeholder="To">
+    <div class="uk-width-1-1@s">
+      <div class="ui calendar" id="rangeend">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input class="uk-input" type="text" placeholder="To" name="to_date">
+        </div>
+      </div>
     </div>
     
 
     <div class="uk-margin uk-width-1-1">
-      <textarea name="extra" class="uk-textarea" rows="5" placeholder="Anything else?"></textarea>
+      <textarea name="extra" class="uk-textarea" rows="5" placeholder="Tell us more about your plans"></textarea>
     </div>
 
+    
 
 
     <div class="uk-margin">
@@ -83,7 +94,8 @@
 
 
 
-</div>
+
+</section>
 
 <br/> 
 

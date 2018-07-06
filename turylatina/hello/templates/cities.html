@@ -3,11 +3,12 @@
 
 <style>
 
-	.uk-card, .uk-card-default {
+	.uk-card, .uk-card-default, .uk-card-body {
 		border-radius: 0.5em;
 	}
 
 </style>
+
 
 
 
@@ -18,40 +19,46 @@
 	<br/>
 	<br/>
 
-	<div class="uk-container">
+	<div class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > div > div > .uk-card; delay: 370;">
 
 		<div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid uk-height-match="target: > div > .uk-card">
 
 			{% for city in cities %}
 
 			<div>
-				<div class="uk-card uk-card-default">
+				<div class="uk-card uk-card-default" style="background-color: whitesmoke; color: black;">
 					<div class="uk-card-media-top">
-						<img src="{{city.image}}" alt="{{city.name}}">
+						<img src="{% static 'style/resources/cards/'%}{{city.image}}" alt="{{city.name}}">
 					</div>
-					<div class="uk-card-body">
-						<h2 class="uk-card-title" style="font-weight: 300; font-family: 'Raleway', sans-serif; color: rgb(75, 75, 75);">{{city.name}}</h2>
-						<p>{{city.dpt}}
-							<br/> From $ {{city.price | intcomma}} COP</p>
-						<a class="uk-position-absolute uk-transform-center" style="right: 5%; top: 90%" href="#modal-full-{{city.id}}" uk-toggle
-						 uk-marker></a>
+					<div class="uk-card-body uk-animation-toggle">
+						<h2 class="uk-card-title" style="font-weight: 300; font-family: 'Raleway', sans-serif; color: rgb(75, 75, 75);">
+							{{city.name}}
+						</h2>
+						<p>
+							{{city.dpt}}
+							<br/> From $ {{city.price | intcomma}} COP
+						</p>
+						<a class="uk-position-absolute uk-transform-center uk-animation-fade" style="right: 5%; top: 90%" href="#modal-full-{{city.id}}" uk-toggle uk-marker></a>
 					</div>
 				</div>
 			</div>
 
+
+
 			<div id="modal-full-{{city.id}}" class="uk-modal-full" uk-modal>
 					<div class="uk-modal-dialog">
+
 						<button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-						<div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-							<div class="uk-background-cover" style="background-image: url('{{city.image}}');"
-							 uk-height-viewport></div>
+
+						<div class="uk-grid-collapse uk-child-width-1-2@s" uk-grid>
+
+							<div class="uk-background-cover" style="background-image: url('{% static "style/resources/cards/"%}{{city.vertical}}'); height: 100%; background-position: center; overflow: hidden;" uk-height-viewport></div>
 			
 							<div class="uk-padding-large">
 			
 								<h1 style="font-weight: 300; font-size: 80px; font-family: 'Raleway', sans-serif; color: gray;">{{city.name}}</h1>
 			
-								<p> {{city.info}}
-								</p>
+								<p style="font-size: 16px;"> {{city.info}} </p>
 			
 								{% if city.name == "Cartagena de Indias" or city.name ==  "Santa Marta" or city.name ==  "Barranquilla"  %}
 								<a style="text-decoration: none;" href="{% url 'map' %}">
@@ -62,13 +69,26 @@
 									<img src="{% static 'style/resources/ciudades/centro.jpg'%}">
 								</a>
 								{% endif %}
-			
-			
+								<br/>
+								<br/>
+								<br/>
+								<div class="uk-position-relative uk-visible-toggle uk-light" uk-slider>
+									<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
+										{% for im in city.ims%}
+										<li>
+											<div class="uk-panel">
+												<img src="{{im}}" alt="">
+											</div>
+										</li>
+										{% endfor %}						
+									</ul>
+									<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+									<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+								</div>
 							</div>
-			
+
 						</div>
 					</div>
-			
 				</div>
 			
 
